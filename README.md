@@ -1,5 +1,7 @@
 # ZCash Name Service: website and web app
 
+[![Verify live site](https://github.com/ZCashNames/zcash-name-front/actions/workflows/verify-live.yml/badge.svg)](https://github.com/ZCashNames/zcash-name-front/actions/workflows/verify-live.yml)
+
 The website and web app of [ZCash Name Service](https://zcashnames.co): short, readable names for Zcash Unified Addresses, on a registry anyone can rebuild from the Zcash blockchain.
 
 - Live: https://zcashnames.co (the app is at https://zcashnames.co/app)
