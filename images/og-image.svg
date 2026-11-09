@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0e0d" />
+      <stop offset="50%" stop-color="#181512" />
+      <stop offset="100%" stop-color="#090807" />
+    </linearGradient>
+    
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    
+    <!-- Radial Glow -->
+    <radialGradient id="amberGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Dark Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="200" r="450" fill="url(#amberGlow)" />
+  
+  <!-- Subtle Grid/Pattern Lines -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="200" y1="0" x2="200" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="600" y1="0" x2="600" y2="630" />
+    <line x1="800" y1="0" x2="800" y2="630" />
+    <line x1="1000" y1="0" x2="1000" y2="630" />
+  </g>
+
+  <!-- Center Card Frame -->
+  <rect x="80" y="60" width="1040" height="510" rx="32" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5" />
+
+  <!-- Logo Container -->
+  <g transform="translate(140, 140)">
+    <!-- Logo Badge Background -->
+    <rect width="110" height="110" rx="28" fill="url(#goldGrad)" />
+    <!-- ZCash SVG icon centered in badge -->
+    <g transform="translate(23, 23) scale(2.666)">
+      <path fill="#ffffff" d="M12 0A12 12 0 0 0 0 12a12.013 12.013 0 0 0 12 12 12 12 0 1 0 0-24zm-1.008 4.418h2.014v2.014l3.275-.002v1.826l-5.08 6.889h5.08v2.423h-3.275v2.006h-2.012v-2.006H7.72v-1.826l5.074-6.888H7.719V6.432h3.273V4.418z" />
+    </g>
+  </g>
+
+  <!-- Title Text -->
+  <text x="280" y="210" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="#ffffff" letter-spacing="-1">ZCashNames</text>
+  
+  <!-- Subtitle Tagline -->
+  <text x="280" y="260" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="28" fill="#fbbf24">Decentralized Domain Name Service for ZCash</text>
+
+  <!-- Feature Description -->
+  <text x="140" y="360" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="24" fill="#d1d5db" width="920">
+    Register readable domain names for Ironwood ZCash Unified Addresses.
+  </text>
+  <text x="140" y="400" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="24" fill="#9ca3af">
+    Fast, private, secure name resolution and domain marketplace on ZCash.
+  </text>
+
+  <!-- TLD Badges -->
+  <g transform="translate(140, 460)">
+    <rect x="0" y="0" width="130" height="46" rx="23" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5" />
+    <text x="65" y="31" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#fbbf24" text-anchor="middle">.zcash</text>
+
+    <rect x="150" y="0" width="100" height="46" rx="23" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5" />
+    <text x="200" y="31" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#fbbf24" text-anchor="middle">.zec</text>
+  </g>
+
+  <!-- Website URL Tag in Bottom Right -->
+  <text x="1040" y="492" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="26" fill="#ffffff" text-anchor="end" opacity="0.9">zcashnames.co</text>
+</svg>

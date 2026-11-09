@@ -1,0 +1,14 @@
+{
+  "name": "zcash-name-front",
+  "version": "1.0.7",
+  "description": "Frontend for the ZCash Name Service (zcashnames.co)",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.css",
+    "watch:css": "tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.css --watch",
+    "set-version": "node scripts/set-version.mjs"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

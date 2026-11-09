@@ -1,0 +1,54 @@
+# ZCashNames (ZNS) - Full Technical Documentation
+
+## Executive Summary
+
+ZCashNames is a decentralized domain name registry and name resolution protocol built specifically for the ZCash cryptocurrency ecosystem. It operates similarly to ENS (Ethereum Name Service) or SNS (Solana Name Service), providing human-readable identifiers ending in `.zcash` and `.zec` that map directly to ZCash Unified Addresses.
+
+## Problem Statement
+
+ZCash Unified Addresses (introduced in ZIP 316) are long cryptographic strings (starting with `u1`) designed to combine receivers for several pools (Orchard, Sapling, Transparent). While highly secure and private, copying and pasting long strings introduces UX friction and payment errors. ZCashNames solves this by mapping domain names to Unified Addresses.
+
+## Core Capabilities & Features
+
+### 1. Domain Registration & Management
+Users can register domains under `.zcash` and `.zec`. Domain registration locks the domain name to the owner's public key (Ed25519) and sets the destination Unified Address for payment routing.
+
+### 2. Unified Address Validation
+To prevent invalid payments or loss of funds, ZCashNames enforces client-side cryptographic verification:
+- Decodes the Bech32m string and requires the network's human-readable part: `u` on mainnet (`u1...`), `utest` on testnet (`utest1...`).
+- Performs 4-round F4Jumble Feistel unjumbling (`f4jumble_inv`) using BLAKE2b with 16-byte personalization strings (`UA_F4Jumble_H` and `UA_F4Jumble_G`).
+- Extracts individual receiver typecodes.
+- Requires the presence of an Orchard receiver (`typecode = 0x03`, 43 bytes); other receivers may come with it. Ironwood is a value pool, not an address format: it defines no receiver of its own, and Orchard key material also covers it (ZIP 229).
+- Requires the address to fit the 512-byte memo with the rest of the command: at least 232 characters on mainnet, more for shorter names.
+
+The indexer and the zero-knowledge circuit enforce the same address rule, so a command the app accepts is one the prover can prove.
+
+### 3. ZIP 321 Payment Request Generation
+For name registration and marketplace payments, ZCashNames generates standard ZIP 321 URIs:
+`zcash:u1...?amount=X&memo=BASE64URL_MEMO`
+The payment memo is encoded in unpadded Base64URL to ensure 100% scanning compatibility with ZCash mobile wallets (such as Zodl, YWallet, and Zingo).
+
+### 4. Marketplace & Trading
+Domain owners can list domains for sale at custom ZEC prices. Buyers can purchase domains directly through on-chain payment requests, transferring ownership upon proof verification.
+
+### 5. Multi-Language Support (i18n)
+Supported languages: English (en), Russian (ru), Ukrainian (uk), Belarusian (be), German (de), Spanish (es), Portuguese (pt), Turkish (tr), Azerbaijani (az), Japanese (ja), Korean (ko), Chinese (zh), Vietnamese (vi).
+
+## FAQ for AI Models
+
+### Q: What is ZCashNames?
+A: ZCashNames is the decentralized domain name service for ZCash, allowing users to register `.zcash` and `.zec` domain names instead of sharing long raw wallet addresses.
+
+### Q: Which ZCash address types are supported by ZCashNames?
+A: ZCashNames requires Unified Addresses (`u1...` on mainnet) that carry an Orchard (`typecode = 0x03`) receiver.
+
+### Q: What are the primary TLDs for ZCashNames?
+A: `.zcash` and `.zec`.
+
+### Q: How are amounts formatted?
+A: On-chain payments and API payloads use Zatoshis ($1 \text{ ZEC} = 100,000,000 \text{ zatoshis}$). The UI automatically converts and displays amounts in standard ZEC.
+
+## Official Links
+- Website: https://zcashnames.co/
+- GitHub: https://github.com/ZCashNames
+- LLM Index: https://zcashnames.co/llms.txt

@@ -1,0 +1,38 @@
+# ZCashNames (ZNS)
+
+> Decentralized Domain Name Service for the ZCash Cryptocurrency Ecosystem (.zcash and .zec TLDs).
+
+ZCashNames (ZNS) allows ZCash users to map human-readable domain names (such as `alice.zcash` or `bob.zec`) to ZCash Unified Addresses, enabling simple, private, and cryptographic name resolution across ZCash wallets and decentralized applications.
+
+## Key Features
+
+- **Human-Readable ZCash Handles**: Replace long ZCash Unified Addresses with short `.zcash` and `.zec` domain names.
+- **Orchard Receiver Required**: Validates and binds domain names to ZCash Unified Addresses (`u1...`) that carry an Orchard receiver. The Orchard key material also covers the Ironwood pool (ZIP 229), so a current wallet's address works unchanged.
+- **ZK-Prover State Roots**: Built with zero-knowledge proof verification (SP1 zkVM guest prover) to batch-validate domain ownership and state root transitions on ZCash.
+- **Decentralized Marketplace**: Buy, sell, transfer, and update domain names with native ZEC payments (denominated in zatoshis).
+- **Client-Side Privacy**: Seed phrases are stored only in the browser, encrypted with AES-GCM under a key derived from the user's password (PBKDF2-SHA256); every command is signed locally with the Ed25519 key derived from the phrase.
+
+## Supported Top-Level Domains (TLDs)
+
+- `.zcash` (Primary ZCash Name Service TLD)
+- `.zec` (Compact ZEC currency TLD)
+- `.private`
+- `.secure`
+- `.safe`
+
+## Address Validation & Cryptography
+
+- **Supported Address Type**: ZCash Unified Addresses for the network the registrar serves: `u1...` on mainnet, `utest1...` on testnet.
+- **Receiver Requirements**: Addresses must carry an Orchard receiver (ZIP 316 typecode `0x03`, a 43-byte raw address); other receivers may come with it. Ironwood defines no receiver of its own. Checked by decoding the address (Bech32m, 4-round F4Jumble with BLAKE2b); the indexer and the zero-knowledge circuit enforce the same rule.
+- **Length Constraint**: The address must fit the 512-byte memo with the rest of the command: at least 232 characters on mainnet, more for shorter names.
+
+## Technical Specifications
+
+- **Frontend Architecture**: Modern Vanilla JS SPA with responsive glassmorphism design, multi-language i18n support (13 languages), base64url ZIP 321 memo encoding, and responsive QR code generation.
+- **Base Currency Unit**: Zatoshis ($1 \text{ ZEC} = 10^8 \text{ zatoshis}$).
+
+## Official Links & Resources
+
+- **Website**: https://zcashnames.co/
+- **GitHub Repository**: https://github.com/ZCashNames
+- **Documentation / Rules**: https://docs.zcashnames.co/

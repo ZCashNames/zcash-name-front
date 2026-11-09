@@ -1,0 +1,35 @@
+{
+  "name": "ZCashNames - Decentralized Domain Name Service",
+  "short_name": "ZCashNames",
+  "description": "Decentralized domain name service for ZCash cryptocurrency. Register human-readable names for Ironwood ZCash Unified Addresses.",
+  "icons": [
+    {
+      "src": "images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0e0d",
+  "theme_color": "#f59e0b",
+  "orientation": "any",
+  "categories": [
+    "finance",
+    "utilities",
+    "crypto"
+  ]
+}
